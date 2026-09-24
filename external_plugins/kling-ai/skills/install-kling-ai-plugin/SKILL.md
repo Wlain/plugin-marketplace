@@ -1,7 +1,7 @@
 ---
 name: install-kling-ai-plugin
 description: Install, refresh, or troubleshoot the Kling AI plugin and remote OAuth MCP registration in Grok Build. Preserve the packaged server key and do not add a duplicate connection.
-version: 1.0.0
+version: 1.0.1
 author: KLING AI
 license: MIT
 metadata:
@@ -11,7 +11,7 @@ metadata:
 
 # Install Kling AI in Grok Build
 
-1. The marketplace package defaults to Global: `.mcp.json` activates `https://kling.ai/mcp`. For a China-region private distribution, replace it with the inactive `.mcp.china.json` template for `https://klingai.com/mcp` before installation. Preserve exactly one server named `Plugin-Grok-kling-ai` with `X-Kling-Integration: Plugin-Grok`; never activate both templates.
+1. The marketplace package defaults to Global: `.mcp.json` activates `https://kling.ai/mcp/plugin`. For a China-region private distribution, replace it with the inactive `.mcp.china.json` template for `https://klingai.com/mcp/plugin` before installation. Preserve exactly one server named `Plugin-Grok-kling-ai` with `X-Kling-Integration: Plugin-Grok`; never activate both templates.
 2. Validate and install the complete plugin directory:
 
    ```bash

@@ -2,11 +2,19 @@
 
 This directory is a native Grok Build plugin. It contains a Grok manifest,
 Agent Skills, and one selected OAuth-protected remote MCP registration. Use
-the marketplace default `.mcp.json` for Global (`https://kling.ai/mcp`). For a
+the marketplace default `.mcp.json` for Global (`https://kling.ai/mcp/plugin`). For a
 China-region private distribution, replace it with the inactive
-`.mcp.china.json` template (`https://klingai.com/mcp`) before installation.
+`.mcp.china.json` template (`https://klingai.com/mcp/plugin`) before installation.
 Never activate both. The plugin does not bundle `mcp-app/`, start a local MCP
 server, or require a Kling API key.
+
+## Included Skills
+
+- `kling-ai`: account, credits, task status, uploads, Elements, and the motion library.
+- `kling-ai-generate-image`: image generation, reference roles, and prompt construction.
+- `kling-ai-generate-video`: video generation, motion control, and shot planning.
+
+Install the three generation/workflow Skills together; their relative references share one billing and result contract. Quality defaults prefer live-supported 2k images and 1080p video, while respecting explicit draft/cost requests and model limits. A lost submission response can be queried only when its `generationId` is known; account-history recovery is not supported.
 
 ## Install in Grok Build
 
@@ -37,8 +45,8 @@ Grok web supports custom MCP connectors independently of Grok Build plugins:
 
 1. Open <https://grok.com/connectors>.
 2. Choose **New Connector → Custom**.
-3. Enter the Global endpoint `https://kling.ai/mcp` and complete OAuth. China
-   accounts use `https://klingai.com/mcp` instead; never add both.
+3. Enter the Global endpoint `https://kling.ai/mcp/plugin` and complete OAuth. China
+   accounts use `https://klingai.com/mcp/plugin` instead; never add both.
 
 This web flow connects the remote tools but does not install the Grok Build
 Skills in this directory. Use the Grok Build plugin when you need the full

@@ -2,7 +2,7 @@
   "mcpServers": {
     "Plugin-Grok-kling-ai": {
       "type": "http",
-      "url": "https://klingai.com/mcp",
+      "url": "https://klingai.com/mcp/plugin",
       "headers": {
         "X-Kling-Integration": "Plugin-Grok"
       }
