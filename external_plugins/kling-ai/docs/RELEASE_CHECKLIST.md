@@ -3,7 +3,7 @@
 ## Local plugin gate
 
 - [ ] `.grok-plugin/plugin.json` is valid and its version matches `package.json`.
-- [ ] `.mcp.json` registers only Global and the inactive `.mcp.china.json` registers only China, both as `Plugin-Grok-kling-ai`; validate the Global marketplace package and test the China private-distribution variant separately.
+- [ ] `.mcp.json` registers only Global and the inactive `.mcp.china.json` registers only China, both as `kling-ai`; validate the Global marketplace package and test the China private-distribution variant separately.
 - [ ] The telemetry-only header is `X-Kling-Integration: Plugin-Grok`.
 - [ ] The archive contains no `mcp-app/`, local MCP server, OAuth tokens, `.env`, profile config, or caches.
 - [ ] `grok plugin validate grok/kling-ai` passes on the supported Grok Build version.

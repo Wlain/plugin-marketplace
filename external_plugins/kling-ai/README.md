@@ -16,6 +16,8 @@ server, or require a Kling API key.
 
 Install the three generation/workflow Skills together; their relative references share one billing and result contract. Quality defaults prefer live-supported 2k images and 1080p video, while respecting explicit draft/cost requests and model limits. A lost submission response can be queried only when its `generationId` is known; account-history recovery is not supported.
 
+When upgrading from an older server name, disconnect its OAuth session and remove the previous Kling connection before registering `kling-ai`. Keep exactly one active Kling connection.
+
 ## Install in Grok Build
 
 Install [Grok Build](https://docs.x.ai/build/overview), then validate and
@@ -28,12 +30,12 @@ grok plugin enable kling-ai
 grok inspect
 ```
 
-Open `/mcps` in the Grok TUI, select `Plugin-Grok-kling-ai`, and press `i` to
+Open `/mcps` in the Grok TUI, select `kling-ai`, and press `i` to
 complete Kling OAuth in the browser. Then verify the connection:
 
 ```bash
 grok mcp list
-grok mcp doctor Plugin-Grok-kling-ai
+grok mcp doctor kling-ai
 ```
 
 Only trust the plugin after inspecting its source. Grok keeps plugin MCP

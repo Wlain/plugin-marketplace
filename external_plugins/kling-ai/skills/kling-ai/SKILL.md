@@ -11,7 +11,7 @@ metadata:
 
 # Kling AI for Grok Build
 
-Use only the packaged server `Plugin-Grok-kling-ai` at the Global endpoint `https://kling.ai/mcp/plugin`. This package does not bundle, start, or depend on a local MCP server.
+Use only the packaged server `kling-ai` at the Global endpoint `https://kling.ai/mcp/plugin`. This package does not bundle, start, or depend on a local MCP server.
 
 A China-region private distribution may instead activate `https://klingai.com/mcp/plugin`. Never activate both regions; disconnect the old OAuth session before replacing the endpoint and authorizing again.
 
@@ -26,7 +26,7 @@ An attachment does not determine its role. When the user has not specified one, 
 
 ## Grok Build connection boundary
 
-- Use native Grok Build MCP OAuth for `Plugin-Grok-kling-ai`. Never request an API key, token, cookie, authorization header, or credential file. Never log private account fields or signed URLs.
+- Use native Grok Build MCP OAuth for `kling-ai`. Never request an API key, token, cookie, authorization header, or credential file. Never log private account fields or signed URLs.
 - Grok Build owns OAuth registration, PKCE, credential storage, and refresh. Preserve its native flow and the packaged server identity. The `X-Kling-Integration: Plugin-Grok` header is telemetry-only and must not affect authorization or billing.
 - Create one RFC 4122 UUIDv7 `taskTraceId` for each unrelated new objective. Reuse it across discovery, upload, generation, and querying for the same objective. Present `generationId` as the task number; do not expose `taskTraceId` unless troubleshooting requires it.
 
@@ -66,7 +66,7 @@ Apply these defaults only when the user did not specify another choice and the l
 
 ## Failure behavior
 
-- Unauthorized: open `/mcps`, select `Plugin-Grok-kling-ai`, and press `i`; continue only after native authorization succeeds.
+- Unauthorized: open `/mcps`, select `kling-ai`, and press `i`; continue only after native authorization succeeds.
 - Unsupported argument: refresh the live tool definitions and change only the rejected field. Show the revised settings and obtain confirmation again before any new generation.
 - Insufficient credits or provider failure: report the provider message and task number, then stop. Do not retry automatically.
 - Expired result URL: query the original task number for a fresh URL; do not create a new task.
