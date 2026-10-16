@@ -6,12 +6,12 @@
 - [ ] `.mcp.json` registers only Global and the inactive `.mcp.china.json` registers only China, both as `kling-ai`; validate the Global marketplace package and test the China private-distribution variant separately.
 - [ ] The telemetry-only header is `X-Kling-Integration: Plugin-Grok`.
 - [ ] The archive contains no `mcp-app/`, local MCP server, OAuth tokens, `.env`, profile config, or caches.
-- [ ] `grok plugin validate grok/kling-ai` passes on the supported Grok Build version.
+- [ ] `grok plugin validate external_plugins/kling-ai` passes on the supported Grok Build version.
 - [ ] A clean `grok plugin install <path> --trust` plus `grok plugin enable kling-ai` exposes both Skills and exactly one MCP server.
 - [ ] `/mcps` authorization, OAuth refresh/reconnect, `grok mcp doctor`, and account switching pass.
 - [ ] Text/resource fallback works; interactive MCP App rendering is not claimed until the target Grok surface is verified.
 - [ ] Generation confirmation, at-most-once submission, ambiguous-timeout recovery, and `generationId` preservation are manually verified.
-- [ ] `npm run check`, `npm test`, and root `node scripts/verify-host-parity.mjs` pass.
+- [ ] From the marketplace root, `python3 scripts/validate-catalog.py` and `python3 scripts/generate-plugin-index.py --check` pass.
 
 ## xAI official marketplace gate
 
@@ -29,8 +29,8 @@ Alternative: vendor the plugin under the official repository's
 `external_plugins/kling-ai/` and use a local source entry. Remote source is
 the official contribution guide's recommended path for third parties.
 
-- [ ] The submitted source is public, reachable, licensed, and under the real publisher's organization rather than an unrelated personal account.
-- [ ] The catalog source is pinned to a reachable full commit SHA, not a branch, tag, or abbreviated SHA.
+- [ ] The submitted source is public, reachable, licensed, and its publisher authorization is verifiable. For a remote source, prefer the real publisher's organization.
+- [ ] Remote sources are pinned to a reachable full commit SHA, not a branch, tag, or abbreviated SHA. Vendored local sources are reviewed in the marketplace commit.
 - [ ] The repository README declares network endpoints, OAuth/permissions, privacy/terms URLs, data handling, and publisher ownership.
 - [ ] No `curl | bash`, postinstall execution, secret reading/exfiltration, obfuscated payload, broad hook, or local shell-exec MCP server is present.
 - [ ] The official catalog PR has passed CI and code-owner review before any “available in the xAI marketplace” claim is published.

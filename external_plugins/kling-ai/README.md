@@ -10,6 +10,7 @@ server, or require a Kling API key.
 
 ## Included Skills
 
+- `install-kling-ai-plugin`: installation, refresh, and OAuth connection troubleshooting.
 - `kling-ai`: account, credits, task status, uploads, Elements, and the motion library.
 - `kling-ai-generate-image`: image generation, reference roles, and prompt construction.
 - `kling-ai-generate-video`: video generation, motion control, and shot planning.
@@ -24,8 +25,8 @@ Install [Grok Build](https://docs.x.ai/build/overview), then validate and
 install this plugin from the repository root:
 
 ```bash
-grok plugin validate grok/kling-ai
-grok plugin install "$PWD/grok/kling-ai" --trust
+grok plugin validate external_plugins/kling-ai
+grok plugin install "$PWD/external_plugins/kling-ai" --trust
 grok plugin enable kling-ai
 grok inspect
 ```
@@ -95,8 +96,11 @@ represent that publisher.
 
 ## Verify
 
+Run from the marketplace repository root. These checks do not authorize OAuth or
+submit a credit-consuming generation.
+
 ```bash
-npm run check --prefix grok/kling-ai
-npm test --prefix grok/kling-ai
-node scripts/verify-host-parity.mjs
+grok plugin validate external_plugins/kling-ai
+python3 scripts/validate-catalog.py
+python3 scripts/generate-plugin-index.py --check
 ```
